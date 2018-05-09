@@ -2,13 +2,13 @@ apiVersion: kubeflow.org/v1alpha1
 kind: TFJob
 metadata:
   namespace: compute
-  name: reproducing-gpu-bug-66
+  name: reproducing-gpu-bug-75
 spec:
   replicaSpecs:
   - template:
       spec:
         nodeSelector:
-          beta.kubernetes.io/instance-type: p1.xlarge
+          beta.kubernetes.io/instance-type: p2.xlarge
         tolerations:
         - key: nvidia.com/gpu
           effect: NoSchedule
