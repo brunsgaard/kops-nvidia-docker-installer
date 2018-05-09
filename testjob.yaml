@@ -1,0 +1,29 @@
+apiVersion: kubeflow.org/v1alpha1
+kind: TFJob
+metadata:
+  namespace: compute
+  name: reproducing-gpu-bug-66
+spec:
+  replicaSpecs:
+  - template:
+      spec:
+        nodeSelector:
+          beta.kubernetes.io/instance-type: p1.xlarge
+        tolerations:
+        - key: nvidia.com/gpu
+          effect: NoSchedule
+        containers:
+        - name: tensorflow
+          imagePullPolicy: Always
+          image: "quay.io/economic/vml-ssn-research:ssn-1116-bfm-with-new-dk-dataset"
+          command: ["python"]
+          args: ["experiments/sentence_based_baseline/bfm_main.py"]
+          envFrom:
+          - configMapRef:
+              name: asgt-shared-envvars
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+        imagePullSecrets:
+        - name: economic-vml-ro-pull-secret
+        restartPolicy: Never
