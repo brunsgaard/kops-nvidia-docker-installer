@@ -14,8 +14,8 @@ spec:
       labels:
         name: nvidia-device-plugin-ds
     spec:
-      # nodeSelector:
-      #   kops.k8s.io/instancegroup: gpu-nodes
+      nodeSelector:
+        kops.k8s.io/instancegroup: gpu-nodes
       tolerations:
       # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
       # This, along with the annotation above marks this pod as a critical add-on.
