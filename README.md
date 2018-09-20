@@ -8,7 +8,7 @@ The version of nvidia-docker and nvidia-container-runtime installed by
 `nvidia-docker-installer.sh` is expecting the Kubernetes cluster to run docker
 version 17.03.2.
 
-Lets go ahead and change the docker version used by the clustger
+Lets go ahead and change the docker version used by the cluster
 
 ```
 kops edit cluster
