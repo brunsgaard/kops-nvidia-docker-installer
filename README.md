@@ -6,7 +6,7 @@ Docker, nvidia-docker and nvidia-container-runtime has to agree on a docker vers
 
 The version of nvidia-docker and nvidia-container-runtime installed by
 `nvidia-docker-installer.sh` is expecting the Kubernetes cluster to run docker
-version 17.03.2.
+version 18.6.1.
 
 Lets go ahead and change the docker version used by the cluster
 
@@ -19,7 +19,7 @@ You need to add the following under `spec`.
 ```
 docker:
   logDriver: json-file
-  version: 17.03.2
+  version: 18.6.1
 ```
 
 Perform a rolling update and verify that nodes are now running the correct
